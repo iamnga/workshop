@@ -1,0 +1,357 @@
+<div class="content text-center">
+  <!-- MiniGame -->
+  <div class="animate__animated animate__slideInLeft">
+    <div class="text-center">
+      <div class="pt-4">
+        <img
+          src="assets/imgs/Logo.png"
+          class="img img-fluid"
+          alt=""
+          style="width: 120px"
+        />
+      </div>
+      <div class="digital-app-title py-4">
+        <!-- Kính mời Quý vị xem nội dung<br />
+        và trả lời câu hỏi để được<br />
+        nhận các phần quà hấp dẫn -->
+      </div>
+      <!-- MiniGame Item -->
+      <div class="list-mini-game">
+        <!-- STM -->
+        <div class="px-3 mb-4" routerLink="/digital-app/stm">
+          <div class="position-relative">
+            <ng-container *ngIf="!isLoaded">
+              <div class="placeholder-glow">
+                <div
+                  class="placeholder"
+                  style="width: 100%; height: 500px"
+                ></div>
+              </div>
+            </ng-container>
+            <img
+              (load)="imageLoaded()"
+              src="assets/imgs/STM.png"
+              class="img img-fluid"
+              alt=""
+            />
+            <div class="app-info position-absolute w-100">
+              <div class="app-title">STM (Smart Teller Machine)</div>
+              <div class="app-description mt-2">
+                Cùng trợ lý ảo tìm hiểu máy STM qua<br />công nghệ AR!
+              </div>
+            </div>
+            <div class="app-btn position-absolute px-3 w-100">
+              <button class="btn btn-primary w-100">Xem ngay</button>
+            </div>
+          </div>
+        </div>
+        <!-- End STM -->
+
+        <!-- OMNI -->
+        <div class="px-3 mb-4" routerLink="/digital-app/omnichannel">
+          <div class="position-relative">
+            <img src="assets/imgs/OMNI.png" class="img img-fluid" alt="" />
+            <div class="app-info position-absolute w-100">
+              <div class="app-title text-white">Omnichannel</div>
+              <div class="app-description mt-2 text-white">
+                Giới thiệu một số hình ảnh thiết kế<br />
+                (mockup) của ứng dụng Mobile App <br />
+                dành cho Retail Banking
+              </div>
+            </div>
+            <div class="app-btn position-absolute px-3 w-100">
+              <button class="btn btn-primary w-100">Xem ngay</button>
+            </div>
+          </div>
+        </div>
+        <!-- End OMNI -->
+
+        <!-- CI -->
+        <div class="px-3 mb-4" routerLink="/digital-app/customer-insight">
+          <div class="position-relative">
+            <img src="assets/imgs/Data.png" class="img img-fluid" alt="" />
+            <div class="app-info position-absolute w-100">
+              <div class="app-title">Customer Insight</div>
+              <div class="app-description mt-2">
+                Phân tích chân dung Khách hàng
+              </div>
+            </div>
+            <div class="app-btn position-absolute px-3 w-100">
+              <button class="btn btn-primary w-100">Xem ngay</button>
+            </div>
+          </div>
+        </div>
+        <!-- End CI -->
+      </div>
+      <!-- End MiniGame Item -->
+
+      <!-- MiniGame Q&A -->
+      <!-- <div>
+        <div>
+          <img src="assets/imgs/MiniGame.png" class="img img-fluid" alt="" />
+        </div>
+        <div class="app-title mb-3">
+          Vui lòng trả lời câu hỏi để quay số<br />
+          và nhận quà hấp dẫn!
+        </div>
+        <div class="w-100 px-3 mb-5">
+          <button
+            *ngIf="!isQnADone"
+            class="btn btn-qna w-100 mb-5 animate__animated animate__pulse animate__infinite infinite"
+            data-bs-toggle="modal"
+            data-bs-target="#qnaModal"
+          >
+            Thực hiện
+          </button>
+          <button
+            *ngIf="isQnADone"
+            class="btn btn-qna-done w-100 mb-5"
+            data-bs-toggle="modal"
+            data-bs-target="#qnaModal"
+          >
+            <i class="fa-solid fa-circle-check mr-2"></i> Đã thực hiện
+          </button>
+        </div>
+      </div> -->
+      <!-- End MiniGame Q&A -->
+    </div>
+  </div>
+  <!-- End MiniGame -->
+</div>
+
+<!-- Q&A Modal -->
+<div
+  class="modal fade"
+  id="qnaModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <ng-container *ngIf="!isQnADone">
+        <div class="modal-title text-center font-weight-bold py-4">Câu hỏi</div>
+        <div class="px-4">
+          <!-- List Question -->
+          <div class="list-question">
+            <div class="question-item mb-4">
+              <div class="mb-3">
+                <b>Câu 1: STM là Smart Teller Machine</b>
+              </div>
+              <div>
+                <div class="form-check d-inline-block mr-5">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="Question1"
+                    id="Question1A"
+                    value="1A"
+                    [(ngModel)]="question1"
+                  />
+                  <label class="form-check-label" for="Question1A">
+                    A. Đúng
+                  </label>
+                </div>
+                <div class="form-check d-inline-block">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="Question1"
+                    id="Question1B"
+                    value="1B"
+                    [(ngModel)]="question1"
+                  />
+                  <label class="form-check-label" for="Question1B">
+                    B. Sai
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="question-item mb-4">
+              <div class="mb-3">
+                <b>Câu 2: Omnichannel sẽ thay thế</b>
+              </div>
+              <div>
+                <div class="form-check mb-2">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="Question2"
+                    id="Question2A"
+                    value="2A"
+                    [(ngModel)]="question2"
+                  />
+                  <label class="form-check-label" for="Question2A">
+                    A. IB
+                  </label>
+                </div>
+                <div class="form-check mb-2">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="Question2"
+                    id="Question2B"
+                    value="2B"
+                    [(ngModel)]="question2"
+                  />
+                  <label class="form-check-label" for="Question2B">
+                    B. MB
+                  </label>
+                </div>
+                <div class="form-check mb-2">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="Question2"
+                    id="Question2C"
+                    value="2C"
+                    [(ngModel)]="question2"
+                  />
+                  <label class="form-check-label" for="Question2C">
+                    C. Sacombank Pay
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="Question2"
+                    id="Question2D"
+                    value="2D"
+                    [(ngModel)]="question2"
+                  />
+                  <label class="form-check-label" for="Question2D">
+                    D. Cả 3 đáp án trên
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="question-item mb-4">
+              <div class="mb-3">
+                <b
+                  >Câu 3: Tại báo cáo Customer 360 KHCN trên hệ thống MIS,
+                  anh/chị có thể khai thác Tổng quan chân dung toàn bộ hệ thống
+                  KHCN, đánh giá được tiềm năng khai khác và xu hướng phát
+                  triển, gồm:</b
+                >
+              </div>
+              <div>
+                <div class="form-check d-inline-block mb-2">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="Question3"
+                    id="Question3A"
+                    value="3A"
+                    [(ngModel)]="question3"
+                  />
+                  <label class="form-check-label" for="Question3A">
+                    A. Tổng quan hiện trạng và xu hướng giao dịch CASA
+                  </label>
+                </div>
+                <div class="form-check d-inline-block mb-2">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="Question3"
+                    id="Question3B"
+                    value="3B"
+                    [(ngModel)]="question3"
+                  />
+                  <label class="form-check-label" for="Question3B">
+                    B. Tình hình KH sử dụng các sản phẩm số của ngân hàng
+                  </label>
+                </div>
+                <div class="form-check d-inline-block mb-2">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="Question3"
+                    id="Question3C"
+                    value="3C"
+                    [(ngModel)]="question3"
+                  />
+                  <label class="form-check-label" for="Question3C">
+                    C. Tình hình sản phẩm thẻ và xu hướng giao dịch
+                  </label>
+                </div>
+                <div class="form-check d-inline-block mb-2">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="Question3"
+                    id="Question3D"
+                    value="3D"
+                    [(ngModel)]="question3"
+                  />
+                  <label class="form-check-label" for="Question3D">
+                    D. Chân dung và toàn bộ SPDV sử dụng của một KH
+                  </label>
+                </div>
+                <div class="form-check d-inline-block">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="Question3"
+                    id="Question3E"
+                    value="3E"
+                    [(ngModel)]="question3"
+                  />
+                  <label class="form-check-label" for="Question3E">
+                    E. Cả 4 đáp án trên
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- End List Question -->
+
+          <!-- List Button Modal -->
+          <div class="list-btn">
+            <div>
+              <button
+                class="btn w-100"
+                [ngClass]="{
+                  'btn-primary': validateAnswer(),
+                  'btn-secondary': !validateAnswer()
+                }"
+                (click)="checkAnswer()"
+              >
+                Hoàn tất
+              </button>
+            </div>
+            <div
+              class="mb-4 text-center font-weight-bold text-primary mt-3"
+              data-bs-dismiss="modal"
+            >
+              Hủy
+            </div>
+          </div>
+          <!-- End List Button Modal -->
+        </div>
+      </ng-container>
+      <ng-container *ngIf="isQnADone">
+        <div class="p-4">
+          <img
+            style="border-radius: 10px"
+            src="assets/imgs/Q&A_Done.png"
+            class="img img-fluid"
+            alt=""
+          />
+          <div class="text-done my-4">
+            Chúc mừng Quý vị đã hoàn tất Mini game. Kính mời Quý vị tham gia
+            quay số và nhận quà tại bàn quay số!
+          </div>
+          <button
+            class="btn btn-primary w-100"
+            data-bs-dismiss="modal"
+            (click)="goHome()"
+          >
+            Về trang chủ
+          </button>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</div>
+<!-- End Q&A Modal -->

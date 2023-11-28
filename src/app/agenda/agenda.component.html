@@ -1,0 +1,17 @@
+<div class="content text-center">
+  <!-- Agenda -->
+  <div class="animate__animated animate__slideInLeft">
+    <ng-container *ngIf="!isLoaded">
+      <div class="placeholder-glow">
+        <div class="placeholder" style="width: 100%; height: 800px"></div>
+      </div>
+    </ng-container>
+    <img
+      (load)="imageLoaded()"
+      src="assets/imgs/Agenda.png"
+      alt=""
+      class="img img-fluid"
+    />
+  </div>
+  <!-- End Agenda -->
+</div>
