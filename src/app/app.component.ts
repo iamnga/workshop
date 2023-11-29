@@ -1,5 +1,6 @@
 import { Component, ElementRef, ViewChild, HostListener } from '@angular/core';
-import { ApiService } from './api.service';
+import { NavigationEnd, Router } from '@angular/router';
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -8,6 +9,7 @@ import { ApiService } from './api.service';
 })
 export class AppComponent {
   showScrollButton: boolean = false;
+  showFooter = true;
 
   @ViewChild('scrollToTopButton') scrollToTopButton: ElementRef;
   @HostListener('window:scroll', [])
@@ -24,7 +26,20 @@ export class AppComponent {
     event.preventDefault();
   }
 
-  constructor(private apiService: ApiService) {}
+  constructor(private router: Router) {}
+
+  ngOnInit() {
+    this.router.events
+      .pipe(
+        filter(
+          (event): event is NavigationEnd => event instanceof NavigationEnd
+        )
+      )
+      .subscribe((event: NavigationEnd) => {
+        // Kiểm tra URL hiện tại và quyết định có hiển thị footer không
+        this.showFooter = event.urlAfterRedirects !== '/survey/result';
+      });
+  }
 
   scrollToTop(isDelay: boolean = false) {
     if (isDelay) {

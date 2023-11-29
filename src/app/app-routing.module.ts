@@ -10,6 +10,7 @@ import { DocumentComponent } from './document/document.component';
 import { FirstComponent } from './survey/first/first.component';
 import { SecondComponent } from './survey/second/second.component';
 import { ThirdComponent } from './survey/third/third.component';
+import { ResultComponent } from './survey/result/result.component';
 
 const routes: Routes = [
   { path: 'agenda', component: AgendaComponent },
@@ -21,6 +22,7 @@ const routes: Routes = [
   { path: 'survey/first', component: FirstComponent },
   { path: 'survey/second', component: SecondComponent },
   { path: 'survey/third', component: ThirdComponent },
+  { path: 'survey/result', component: ResultComponent },
   { path: 'document', component: DocumentComponent },
   { path: '', redirectTo: '/agenda', pathMatch: 'full' },
 ];

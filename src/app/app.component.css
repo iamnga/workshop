@@ -201,3 +201,45 @@
   font-style: normal;
   font-weight: 700;
 }
+
+.angenda-topic {
+  border-radius: 4px;
+  background: #e5f4fe;
+  padding: 8px 16px;
+  color: #1368bc;
+  font-style: normal;
+  font-weight: 600;
+}
+
+.list-survey {
+  background-image: url(../assets/imgs/Survey.png);
+  height: auto;
+  width: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-bottom: 150px;
+}
+
+.survey-item {
+  padding: 16px 12px;
+  background: #F8F9FB;
+  border-radius: 12px;
+  border: 1px solid #ececec;
+}
+
+.survey-item-title {
+  color: #0d0d0d;
+  font-family: "Play", sans-serif !important;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+}
+
+.survey-item-description {
+  color: #5e656b;
+  text-align: center;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+}

@@ -1,0 +1,56 @@
+<div class="container">
+  <div class="pt-5 pb-4">
+    <img
+      style="cursor: pointer"
+      src="assets/imgs/Logo.png"
+      class="img img-fluid"
+      alt=""
+      (click)="toggleInput()"
+    />
+  </div>
+  <div *ngIf="isShowInput">
+    <div>
+      <div class="mb-3">
+        <label for="surveyTitle" class="form-label">Tiêu đề</label>
+        <input
+          type="text"
+          class="form-control"
+          id="surveyTitle"
+          [(ngModel)]="surveyTitle"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="surveyResult" class="form-label">Kết quả khảo sát</label>
+        <textarea
+          class="form-control"
+          id="surveyResult"
+          rows="10"
+          [(ngModel)]="surveyResult"
+          (ngModelChange)="changeContent()"
+        ></textarea>
+      </div>
+    </div>
+  </div>
+  <div class="py-4">
+    <div class="h1 survey-title">{{ surveyTitle }}</div>
+  </div>
+  <!-- <div [innerHTML]="myStyle" style="max-height: 75vh; overflow: scroll"></div> -->
+  <div style="max-height: 75vh; overflow: scroll">
+    <table class="table table-bordered" *ngIf="rows.length > 0">
+      <thead style="color: white; background-color: #1368bc">
+        <tr>
+          <ng-container *ngFor="let header of headers; index as i">
+            <th [ngClass]="{ 'w-5': i === 0, 'w-20': i === 1 }">
+              {{ header }}
+            </th>
+          </ng-container>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let row of rows">
+          <td *ngFor="let cell of row">{{ cell }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

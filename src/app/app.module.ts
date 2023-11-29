@@ -15,6 +15,9 @@ import { FirstComponent } from './survey/first/first.component';
 import { SecondComponent } from './survey/second/second.component';
 import { ThirdComponent } from './survey/third/third.component';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { PdfViewerModule } from 'ng2-pdf-viewer';
+import { ResultComponent } from './survey/result/result.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,8 +31,15 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
     FirstComponent,
     SecondComponent,
     ThirdComponent,
+    ResultComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule,
+    PdfViewerModule,
+  ],
   providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }],
   bootstrap: [AppComponent],
 })

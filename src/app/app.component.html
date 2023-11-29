@@ -2,7 +2,7 @@
   <router-outlet></router-outlet>
 
   <!-- Nav -->
-  <div class="footer">
+  <div class="footer" *ngIf="showFooter">
     <div class="container">
       <div class="row">
         <div
@@ -20,7 +20,6 @@
           routerLink="/survey"
           class="col px-0 text-center"
           routerLinkActive="active"
-          [routerLinkActiveOptions]="{ exact: true }"
         >
           <div>
             <img src="assets/imgs/icon/rating.svg" alt="" />
@@ -31,12 +30,21 @@
           routerLink="/digital-app"
           class="col px-0 text-center"
           routerLinkActive="active"
-          [routerLinkActiveOptions]="{ exact: true }"
         >
           <div>
             <img src="assets/imgs/icon/mini_game.svg" alt="" />
           </div>
           <div>SPDV số</div>
+        </div>
+        <div
+          routerLink="/document"
+          class="col px-0 text-center"
+          routerLinkActive="active"
+        >
+          <div>
+            <img src="assets/imgs/icon/document.svg" alt="" />
+          </div>
+          <div>Tài liệu</div>
         </div>
       </div>
     </div>
