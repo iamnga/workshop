@@ -37,7 +37,7 @@ export class AppComponent {
       )
       .subscribe((event: NavigationEnd) => {
         // Kiểm tra URL hiện tại và quyết định có hiển thị footer không
-        this.showFooter = event.urlAfterRedirects !== '/survey/result';
+        this.showFooter = event.urlAfterRedirects !== '/survey/result' && event.urlAfterRedirects !== '/digital-app/omnichannel';
       });
   }
 
